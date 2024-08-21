@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Aspect.css" />
+    <title>Aspect Deletion</title>
+ 
+    <script>
+      function handleRequestTypeChange() {
+        var requestType = document.getElementById("allRequestType").value;
+        var additionalDataBox = document.getElementById("additionalData");
+
+        // Redirect based on the selected type
+        switch (requestType) {
+          case "deletion":
+            // Show additional data for creation
+            additionalDataBox.style.display = "block";
+            break;
+          case "modification":
+            // Redirect to modification page
+            window.location.href = "aspectModification.html";
+            break;
+          case "creation":
+            // Redirect to deletion page
+            window.location.href = "aspectCreation.html";
+            break;
+          default:
+            // Hide additional data if no valid option is selected
+            additionalDataBox.style.display = "none";
+        }
+      }
+
+      function redirectToPage(page) {
+        var requestType = document.getElementById("allRequestType").value;
+        if (requestType) {
+          window.location.href = page;
+        }
+      }
+
+      function resetForm() {
+        document.querySelector("form").reset(); // Reset the form
+        document.getElementById("additionalData").style.display = "none"; // Hide additional data section
+        // Ensure no redirection occurs if the form is reset
+      }
+
+      function submitForm() {
+        alert("Your request is submitted successfully.");
+      }
+    </script>
+
+
+   
+  </head>
+  <body>
+    <div class="bx-1">
+      <div class="head">
+        <p>Default Data</p>
+      </div>
+ 
+      <div class="form-bx">
+        <!-- First Field: Types of User Request -->
+        <div class="field">
+          <div class="form-head">
+            <p>Types of User Request: <span>*</span></p>
+          </div>
+          <div class="form-input">
+            <select id="allRequestType" onchange="handleRequestTypeChange();">
+              <!-- <option value="Select">Select</option>-->
+              <option value="deletion">Deletion</option>
+              <option value="modification">Modification</option>
+              <option value="creation">Creation</option>
+            </select>
+          </div>
+        </div>
+        <!-- ./First Field -->
+ 
+        <!-- Second Field: Request For -->
+        <div class="field">
+          <div class="form-head">
+            <p>Request For: <span>*</span></p>
+          </div>
+          <div class="form-input">
+            <div class="rd-bx">
+              <div class="rd-1">
+                <input type="radio" id="myself" name="requestFor" checked />
+                <label for="myself">Myself</label>
+              </div>
+              <div class="rd-2">
+                <input type="radio" id="onBehalf" name="requestFor" />
+                <label for="onBehalf">On behalf of</label>
+              </div>
+            </div>
+            <div class="emp-bx">
+              <input
+                type="text"
+                placeholder="Enter Employee Details..."
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+        <!-- ./Second Field -->
+ 
+        <!-- Third Field: Application -->
+        <div class="field">
+          <div class="form-head">
+            <p>Application: <span>*</span></p>
+          </div>
+          <div class="form-input">
+            <select>
+              <!-- <option value="Select">Select</option> -->
+              <option value="aspect">Alvaria IVR Platform</option>
+              <!-- <option value="sfdc">SFDC</option>
+                        <option value="Aadhar Vault">Aadhar Vault</option>
+                        <option value="CRM Next">CRM Next</option> -->
+            </select>
+          </div>
+        </div>
+        <!-- ./Third Field -->
+ 
+        <!-- Fourth Field: Module Name -->
+        <div class="field">
+          <div class="form-head">
+            <p>Module Name: <span>*</span></p>
+          </div>
+          <div class="form-input">
+            <select>
+              <!-- <option value="Select">Select</option> -->
+              <option value="aspepct">Aspect</option>
+              <!-- <option value="Aadhar Vault">Aadhar Vault</option>
+                        <option value="CRM Next">CRM Next</option> -->
+            </select>
+          </div>
+        </div>
+        <!-- ./Fourth Field -->
+ 
+        <!-- Fifth Field: Business Justification -->
+        <div class="field">
+          <div class="form-head">
+            <p>Business Justification: <span>*</span></p>
+          </div>
+          <div class="form-input">
+            <input
+              type="text"
+              placeholder="Enter Business Justification Here..."
+            />
+          </div>
+        </div>
+        <!-- ./Fifth Field -->
+      </div>
+    </div>
+ 
+    <div class="bx-2">
+      <div class="head">
+        <p>Additional Data Required For Aspect</p>
+      </div>
+ 
+      <div class="form-grp-bx">
+        <div class="form-bx-1">
+          <!-- Additional Field: Name -->
+          <!-- <div class="form-field">
+                    <div class="form-head">
+                        <p>Login UserName: <span>*</span></p>
+                    </div>
+                    <div class="form-input">
+                        <input type="text" placeholder="To Be Auto Populated" disabled   />
+                    </div>
+                </div> -->
+ 
+          <!-- Additional Field: First Name -->
+          <!-- <div class="form-field">
+    <div class="form-head">
+        <p>First Name <span>*</span></p>
+    </div>
+    <div class="form-input">
+        <input type="text" placeholder="To Be Auto Populated" disabled   />
+    </div>
+</div> -->
+ 
+          <!-- Additional Field: Email Id -->
+          <div class="form-field">
+            <div class="form-head">
+              <p>Role: <span>*</span></p>
+            </div>
+            <div class="form-input">
+              <select>
+                <option value="Select">Select</option>
+                <option value="agent">Agent</option>
+                <option value="supervisor">Supervisor/Director</option>
+              </select>
+            </div>
+          </div>
+ 
+          <!-- Additional Field: Approval Level 2 -->
+ 
+          <!-- Additional Field: Is Mobile User -->
+          <!-- <div class="form-field">
+                    <div class="form-head form-head-check">
+                        <input type="checkbox" />
+                        <p>is Mobile User: <span>*</span></p>
+                    </div>
+                    <div class="form-input">
+                        <input type="text" placeholder="XXXXXXX" />
+                    </div>
+                </div> -->
+ 
+          <!-- Additional Field: Approval Level 1 -->
+          <!-- <div class="form-field">
+                    <div class="form-head">
+                        <p>Approval Level 1: <span>*</span></p>
+                    </div>
+                    <div class="form-input">
+                        <select>
+                            <option value="Select">Select</option>
+                            <option value="Amit Goel">Amit Goel</option>
+                            <option value="Niki Kushe">Niki Kushe</option>
+                        </select>
+                    </div>
+                </div> -->
+        </div>
+ 
+        <div class="form-bx-2">
+          <!-- Additional Field: User Role -->
+ 
+          <div class="form-field">
+            <div class="form-head">
+              <p>Approval Level 1: <span>*</span></p>
+            </div>
+            <div class="form-input">
+              <select>
+                <option value="Select">Select</option>
+                <option value="Amit Goel">Amit Goel</option>
+                <option value="Niki Kushe">Niki Kushe</option>
+              </select>
+            </div>
+          </div>
+ 
+          <!-- <div class="form-field">
+                    <div class="form-head">
+                        <p>User Id: <span>*</span></p>
+                    </div>
+                    <div class="form-input">
+                        <input type="text" placeholder="To Be Auto Populated" disabled  />
+                    </div>
+                </div> -->
+ 
+          <!-- Additional Field: Access Module -->
+ 
+          <!-- Additional Field: Channel & Associated Business Unit -->
+          <div class="form-bx-9">
+            <!-- <div class="form-field">
+                        <div class="form-head">
+                            <p>Channel & Associated Business Unit: <span>*</span></p>
+                        </div>
+                        <div class="form-input">
+                            <select>
+                                <option value="Select">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                    </div> -->
+ 
+            <!-- Additional Field: Status -->
+            <!-- <div class="form-field">
+                        <div class="form-head">
+                            <p>Status: <span>*</span></p>
+                        </div>
+                        <div class="form-input">
+                            <label>
+                                <input type="radio" name="option" value="enable"> Enable
+                            </label>
+                            <label>
+                                <input type="radio" name="option" value="disable"> Disable
+                            </label>
+                        </div>
+                    </div> -->
+ 
+            <!-- Additional Field: Last Name -->
+            <!-- <div class="form-field">
+    <div class="form-head">
+        <p>Last Name <span>*</span></p>
+    </div>
+    <div class="form-input">
+        <input type="text" placeholder="To Be Auto Populated" disabled   />
+    </div>
+</div> -->
+ 
+            <!-- Additional Field: Email Id -->
+            <!-- <div class="form-field">
+        <div class="form-head">
+            <p>Email Address: <span>*</span></p>
+        </div>
+        <div class="form-input">
+            <input type="text" placeholder="To Be Auto Populated" disabled  />
+        </div>
+    </div> -->
+ 
+            <!-- <div class="form-field">
+        <div class="form-head">
+            <p>Approval Level 2: <span>*</span></p>
+        </div>
+        <div class="form-input">
+            <select>
+                <option value="Select">Select</option>
+                <option value="Amit Goel">Amit Goel</option>
+            </select>
+        </div>
+    </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Buttons for Reset and Submit -->
+    <div class="btn-grp-bx">
+      <div class="btn btn-1">
+        <button>Reset</button>
+      </div>
+      <div class="btn btn-2">
+        <button>Submit</button>
+      </div>
+    </div>
+  </body>
+</html>
+ 
